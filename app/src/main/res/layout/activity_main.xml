@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="MainActivityBinding">
+
+        <import type="com.example.recyclerviewtwowayexchangeitems.R" />
+
+        <!--<variable
+            name="chooseExerciseFragment"
+            type="com.stepett.app.fragments.excercise.ChooseExerciseFragment" />-->
+
+        <variable
+            name="mainActivity"
+            type="com.example.recyclerviewtwowayexchangeitems.MainActivity" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/scale_1dp"
+            android:layout_marginTop="@dimen/scale_20dp"
+            android:background="@color/colorPrimaryDark" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_selected_exercise"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/scale_110dp"
+            android:layout_below="@id/view1"
+            android:paddingTop="@dimen/scale_10dp"
+            app:exerciseHorizontalItems="@{mainActivity.exerciseSelectedList}"
+            app:layoutId="@{R.layout.layout_selected_exercise_item}" />
+
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/scale_1dp"
+            android:layout_below="@id/rcv_selected_exercise"
+            android:background="@color/colorPrimaryDark" />
+
+        <LinearLayout
+            android:id="@+id/ll_filter_exrecise"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/scale_40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/scale_10dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_choose_exercise"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/ll_filter_exrecise"
+            android:layout_below="@id/view2"
+            android:layout_marginBottom="@dimen/scale_10dp"
+            android:layout_marginTop="@dimen/scale_10dp"
+            app:exerciseChooseItems="@{mainActivity.exerciseList}"
+            app:layoutId="@{R.layout.layout_choose_exercise_item}" />
+
+
+    </RelativeLayout>
+</layout>
